@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Edgar K. blog</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <title>Edgar K. Blog</title>
+    <description>This blog is created under the \n
+Google Summer of Code 2017 programme. \n
+Copyright (c) 2017 Edgar A. Kaziakhmedov. \n
+All rights reserved.
 </description>
     <link>https://edosedgar.github.io/</link>
     <atom:link href="https://edosedgar.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 07 Jul 2017 16:59:00 +0300</pubDate>
-    <lastBuildDate>Fri, 07 Jul 2017 16:59:00 +0300</lastBuildDate>
+    <pubDate>Fri, 07 Jul 2017 17:32:07 +0300</pubDate>
+    <lastBuildDate>Fri, 07 Jul 2017 17:32:07 +0300</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
