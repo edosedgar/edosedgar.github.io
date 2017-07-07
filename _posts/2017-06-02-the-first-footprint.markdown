@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The first footprint"
-date:   2017-07-02 00:00:00 +0300
+date:   2017-06-02 00:00:00 +0300
 categories: introduce new
 ---
 Hello, folks! For a long time I was thinking about an own blog somewhere in the Internet.
