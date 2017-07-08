@@ -84,8 +84,67 @@ basic info about system calls, for instance (strace/linux/x86_64/syscallent.h:1)
 <strong>“read”</strong> - just the system call name.</p>
 
 <p>Now, everything which is necessary to implement initial functionality - just use these files.
-Therefore, the <strong>asinfo</strong> tool has the following architecture:
-<img src="https://edosedgar.github.io/assets/diagram.png" alt="diagram" /></p>
+Therefore, the <strong>asinfo</strong> tool has the following architecture:</p>
+
+<p><img src="https://edosedgar.github.io/assets/diagram.png#center" alt="diagram" /></p>
+
+<p>As for architectures, the <strong>asinfo</strong> has <em>get-arch</em>, <em>list-arch</em>, <em>set-arch %name_of_arch</em> options,
+<strong>arch_dispatcher</strong> is purposed to process these options.
+As a return value, subroutine provides array of arch_descriptor’s:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">arch_descriptor</span> <span class="p">{</span>
+	<span class="k">enum</span> <span class="n">arch_types</span> <span class="n">arch_num</span><span class="p">;</span>
+	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">arch_name</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">max_scn</span><span class="p">;</span>
+	<span class="n">struct_sysent</span> <span class="o">*</span><span class="n">list_of_syscall</span><span class="p">;</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>Concerning managing with system calls, the <strong>asinfo</strong> has <em>get-num</em>, <em>get-nargs</em>, <em>get-proto</em>,
+<em>get-kernel</em>, <em>list-syscall</em> options.
+Based on request, the <strong>syscall_dispatcher</strong> will return the corresponding structures, for example, typing:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>asinfo get-nargs write</code></pre></figure>
+
+<p><strong>syscall_dispatcher</strong> will return the following structure:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">sc_nargs</span> <span class="p">{</span>
+	<span class="k">struct</span> <span class="n">sc_base_info</span> <span class="n">sys_bi</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">nargs</span><span class="p">;</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>where <strong>struct sc_base_info</strong> is:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">sc_base_info</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">sys_number</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">sys_name</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">sys_flags</span><span class="p">;</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>After that, the result will be printed:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>asinfo get-nargs write
+3</code></pre></figure>
+
+<p>Now, to consider the <strong>filter_dispatcher</strong>, let’s enter the next one command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>asinfo list-syscall <span class="nb">set</span>-filter signal</code></pre></figure>
+
+<p>Firstly, <strong>arch_dispatcher</strong> will return the current architecture, after that
+<strong>syscall_dispatcher</strong> will provide the list of system calls (<strong>struct sc_base_info</strong>)
+for this architecture, finally <strong>filter_dispatcher</strong> working with syscallent’s
+database will drop all system calls, which are not signal-related.</p>
+
+<p>The last one detail, how to convert set-arch option to request for arch_dispatcher?
+For this purpose, there is special function <strong>form_req</strong>:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">static</span> <span class="kt">unsigned</span> <span class="n">ATTRIBUTE_NOINLINE</span>
+<span class="n">form_req</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[],</span> <span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">[])</span></code></pre></figure>
+
+<p>Oh, State Examination is acting up… That brings me to the end of my post. Next time, I
+am about to describe the push-back interface with list of arch_descriptor and something more.
+And yes, the previous post was an example of list-arch command.</p>
+
+<p>Watch for updates!</p>
 
   </div>
 
