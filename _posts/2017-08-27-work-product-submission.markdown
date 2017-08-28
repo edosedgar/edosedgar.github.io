@@ -406,6 +406,13 @@ v1 and older minor implementation:
 * Implement the first version of arch_dispatcher.
 * Introduce define-based interface to interact with array of arch_description.
 
+# Acknowledgments
+
+Apart from anything else, I would say, that participation in Google Summer of
+Code program provides a valuable experience in open-source.
+And I would like to thank my mentors for reviewing patches and I look forward
+to continued cooperation to merge **asinfo** into main strace git repo.
+
 # **Links:**
 
 [1] [GSoC 2017 strace proposal][GSoC Proposal 2017]{:target="_blank"}<br>
