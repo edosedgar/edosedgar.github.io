@@ -7,7 +7,6 @@
 
 # Site settings
 title: Edgar K. Blog
-email: edgar.kaziakhmedov@virtuozzo.com
 description: Ipsa scientia potestas est
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://edosedgar.github.io" # the base hostname & protocol for your site
