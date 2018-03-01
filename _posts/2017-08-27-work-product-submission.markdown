@@ -2,7 +2,7 @@
 layout: post
 title:  "GSoC 2017: Work product submission"
 date:   2017-08-27 00:00:00 +0300
-categories: gsoc2017
+categories:
 ---
 
 Hello, folks!

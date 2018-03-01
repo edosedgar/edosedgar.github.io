@@ -2,7 +2,7 @@
 layout: post
 title:  "Coming soon, first version"
 date:   2017-06-14 16:53:26 +0300
-categories: gsoc2017
+categories:
 ---
 Presto, strace started to print out all supported architectures
 and their number of syscalls. It’s just the first step, next time,

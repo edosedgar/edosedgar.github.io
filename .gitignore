@@ -13,3 +13,7 @@ Session.vim
 *~
 # Auto-generated tag files
 tags
+
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata

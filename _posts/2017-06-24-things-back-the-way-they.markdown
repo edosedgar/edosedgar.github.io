@@ -2,7 +2,7 @@
 layout: post
 title:  "Things back the way they"
 date:   2017-06-24 00:00:00 +0300
-categories: gsoc2017
+categories:
 ---
 Good evening, readers. Last time, so much has happened, in sense of project, surely.
 
