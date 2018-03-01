@@ -459,3 +459,6 @@ pre {
 img[src*='#center'] {
   display: block;
   margin: auto; }
+
+body {
+  text-align: justify; }
