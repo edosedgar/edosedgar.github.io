@@ -2,7 +2,7 @@
 layout: post
 title:  "The first footprint"
 date:   2017-06-02 00:00:00 +0300
-categories:
+categories: gsoc2017
 ---
 Hello, folks! For a long time I was thinking about an own blog somewhere in the Internet.
 Well, I think the time has come. First of all, let me tell you a little bit about myself
